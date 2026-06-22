@@ -29,19 +29,19 @@ pipeline {
                 """
             }
         }
-        // stage('Build') { // stage to build the application
-        //     steps {
-        //         sh """
-        //         zip -q -r backend-${appVersion}.zip * -x Jenkinsfile -x backend-${appVersion}.zip
-        //         ls -ltr
-        //         """
-        //     }
-        // }
+        stage('Build') { // stage to build the application
+            steps {
+                sh """
+                zip -q -r backend-${appVersion}.zip * -x Jenkinsfile -x backend-${appVersion}.zip
+                ls -ltr
+                """
+            }
+        }
     }
     post {
         always {
             echo 'I will always say hello again!'
-           // deleteDir() // clean up our workspace
+            deleteDir() // clean up our workspace
         }
         success {
             echo 'I will run when pipeline is successful!'
