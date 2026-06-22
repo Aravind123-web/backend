@@ -41,7 +41,7 @@ pipeline {
     post {
         always {
             echo 'I will always say hello again!'
-            deleteDir() // clean up our workspace
+           // deleteDir() // clean up our workspace
         }
         success {
             echo 'I will run when pipeline is successful!'
